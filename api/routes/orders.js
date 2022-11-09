@@ -8,8 +8,8 @@ router.get("/", (req, res, next) => {
   });
 });
 
-router.get("/:productId", (req, res, next) => {
-  const id = req.params.productId;
+router.get("/:orderId", (req, res, next) => {
+  const id = req.params.orderId;
 
   res.status(200).json({
     message: `handling GET requests for order with id: ${id}`,
@@ -17,16 +17,16 @@ router.get("/:productId", (req, res, next) => {
 });
 
 router.post("/", (req, res, next) => {
-  res.status(200).json({
+  res.status(201).json({
     message: "handling POST requests to /orders",
   });
 });
 
-router.patch("/:productId", (req, res, next) => {
-  const id = req.params.productId;
+router.delete("/:orderId", (req, res, next) => {
+  const id = req.params.orderId;
 
   res.status(200).json({
-    message: `updated order with id: ${id}`,
+    message: `deleted order with id: ${id}`,
   });
 });
 

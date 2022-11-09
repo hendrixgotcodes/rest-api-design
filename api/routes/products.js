@@ -17,7 +17,7 @@ router.get("/:productId", (req, res, next)=>{
 })
 
 router.post("/", (req, res, next)=>{
-    res.status(200).json({
+    res.status(201).json({
         message: "handling POST requests to /products"
     })
 })
@@ -28,6 +28,24 @@ router.patch("/:productId", (req, res, next)=>{
     
     res.status(200).json({
         message: `updated product with id: ${id}`
+    })
+})
+
+router.patch("/:productId", (req, res, next)=>{
+
+    const id = req.params.productId
+    
+    res.status(200).json({
+        message: `updated product with id: ${id}`
+    })
+})
+
+router.delete("/:productId", (req, res, next)=>{
+
+    const id = req.params.productId
+    
+    res.status(200).json({
+        message: `deleted product with id: ${id}`
     })
 })
 
