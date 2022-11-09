@@ -1,11 +1,26 @@
 const express = require("express");
+const morgan = require("morgan");
 
 const app = express();
-const productsRoutes = require("./api/routes/products")
-const orderRoutes = require("./api/routes/orders")
+const productsRoutes = require("./api/routes/products");
+const orderRoutes = require("./api/routes/orders");
 
-app.use("/products", productsRoutes)
-app.use("/orders", orderRoutes)
+app.use(morgan("dev"));
+app.use("/products", productsRoutes);
+app.use("/orders", orderRoutes);
 
+app.use((req, res, next) => {
+  const err = new Error("Not found");
+  err.status = 400;
+  next(err);
+});
 
-module.exports = app
+app.use((err, req, res, next) => {
+  res.status(err.status || 500).json({
+    error: {
+      message: err.message,
+    },
+  });
+});
+
+module.exports = app;
