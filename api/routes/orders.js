@@ -16,9 +16,18 @@ router.get("/:orderId", (req, res, next) => {
   });
 });
 
+console.log("")
+
 router.post("/", (req, res, next) => {
+
+    const newOrder = {
+        productId: req.body.productId,
+        quantity: req.body.quantity
+    }
+    
   res.status(201).json({
     message: "handling POST requests to /orders",
+    newOrder n 
   });
 });
 
