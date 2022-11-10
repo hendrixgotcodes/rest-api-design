@@ -16,8 +16,6 @@ router.get("/:orderId", (req, res, next) => {
   });
 });
 
-console.log("")
-
 router.post("/", (req, res, next) => {
 
     const newOrder = {
