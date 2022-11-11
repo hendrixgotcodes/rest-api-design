@@ -25,7 +25,7 @@ router.post("/", (req, res, next) => {
     
   res.status(201).json({
     message: "handling POST requests to /orders",
-    newOrder n 
+    newOrder
   });
 });
 
